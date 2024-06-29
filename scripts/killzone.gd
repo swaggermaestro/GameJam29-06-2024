@@ -11,6 +11,7 @@ func _on_body_entered(body):
 
 
 func _on_timer_timeout():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/underworld.tscn")
+	# get_tree().reload_current_scene()
 	Engine.time_scale = 1
 	pass # Replace with function body.
