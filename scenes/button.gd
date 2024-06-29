@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 
 @export var body_entered = false
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 
@@ -18,4 +19,5 @@ func _on_button_area_body_exited(body):
 
 func _on_player_action_pressed():
 	if (body_entered):
+		animated_sprite_2d.play("default")
 		print("BUTTON PRESSED")

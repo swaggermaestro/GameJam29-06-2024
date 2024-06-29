@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://eix3vrx5a4y1"]
+
+[ext_resource type="Texture2D" uid="uid://mrrdp0aeia05" path="res://assets/sprites/underworld_platforms.png" id="1_5kmea"]
+[ext_resource type="Script" path="res://scenes/underworld_platform_moving.gd" id="1_ukhdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie3bs"]
+size = Vector2(32, 8)
+
+[node name="Underworld Platform" type="AnimatableBody2D"]
+sync_to_physics = false
+script = ExtResource("1_ukhdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5kmea")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ie3bs")
+
+[node name="ray_cast_left" type="RayCast2D" parent="."]
+target_position = Vector2(-17, 0)
+
+[node name="ray_cast_right" type="RayCast2D" parent="."]
+target_position = Vector2(17, 0)
