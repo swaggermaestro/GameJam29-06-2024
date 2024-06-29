@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbuwvckm05gew"]
+
+[ext_resource type="Texture2D" uid="uid://mrrdp0aeia05" path="res://assets/sprites/underworld_platforms.png" id="1_amuqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie3bs"]
+size = Vector2(32, 8)
+
+[node name="Underworld Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_amuqm")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ie3bs")
+one_way_collision = true

@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu5m0gryrjnf2"]
+
+[ext_resource type="Texture2D" uid="uid://b43oxy1bpcq2q" path="res://assets/sprites/button/pixil-frame-0.png" id="1_ijo2q"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="1_ts5i4"]
+[ext_resource type="Texture2D" uid="uid://c7a1s6plqb4y4" path="res://assets/sprites/button/pixil-frame-1.png" id="2_qna5y"]
+[ext_resource type="Texture2D" uid="uid://cy8f55qkgc31l" path="res://assets/sprites/button/pixil-frame-2.png" id="3_mf5u8"]
+[ext_resource type="Texture2D" uid="uid://b2345cni7je83" path="res://assets/sprites/button/pixil-frame-3.png" id="4_2g8q5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7hg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ijo2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qna5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mf5u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2g8q5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1upxy"]
+size = Vector2(16, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgvat"]
+radius = 22.0227
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+script = ExtResource("1_ts5i4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i7hg7")
+frame_progress = 0.919404
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1upxy")
+
+[node name="ButtonArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShapeButton" type="CollisionShape2D" parent="ButtonArea"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_tgvat")
+
+[connection signal="body_entered" from="ButtonArea" to="." method="_on_button_area_body_entered"]
+[connection signal="body_exited" from="ButtonArea" to="." method="_on_button_area_body_exited"]
