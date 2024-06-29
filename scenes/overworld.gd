@@ -17,11 +17,8 @@ func _process(delta):
 	pass
 
 func _on_killzone_player_dead():
-	get_tree().reload_current_scene()
-	Engine.time_scale = 1
-	pass # Replace with function body.
+	restart.emit()
 
 
 func _on_world_switch_timer_timeout():
 	switch_to_underworld.emit()
-	pass # Replace with function body.
