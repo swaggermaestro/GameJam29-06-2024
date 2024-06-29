@@ -9,6 +9,21 @@ signal action_pressed
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var idle_path = "idle"
+var run_path = "run"
+var jump_path = "jump"
+
+func _init_overworld():
+	idle_path = "idle"
+	run_path = "run"
+	jump_path = "jump"
+
+func _init_underworld():
+	idle_path = "idle_underworld"
+	run_path = "run_underworld"
+	jump_path = "jump_underworld"
+	
+	
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -35,11 +50,11 @@ func _physics_process(delta):
 	# Play animations
 	if is_on_floor():
 		if direction == 0:
-			animated_sprite.play("idle")
+			animated_sprite.play(idle_path)
 		else:
-			animated_sprite.play("run")
+			animated_sprite.play(run_path)
 	else:
-		animated_sprite.play("jump")
+		animated_sprite.play(jump_path)
 	
 	if direction:
 		velocity.x = direction * SPEED
