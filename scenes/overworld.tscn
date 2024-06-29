@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://7gjgjjkxf45m"]
+[gd_scene load_steps=18 format=3 uid="uid://7gjgjjkxf45m"]
 
+[ext_resource type="Script" path="res://scenes/overworld.gd" id="1_22nkr"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_j6x3x"]
 [ext_resource type="PackedScene" uid="uid://0xtutt17bdh5" path="res://scenes/player.tscn" id="1_sddq4"]
 [ext_resource type="FontFile" uid="uid://coxpu4uinbbvn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ahyna"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://khbuib4a8fpk" path="res://scenes/killzone.tscn" id="5_x7fpm"]
 [ext_resource type="PackedScene" uid="uid://bg1f7sh2kk56n" path="res://scenes/slime.tscn" id="6_aaki0"]
 [ext_resource type="FontFile" uid="uid://b0qhfnymigvyv" path="res://assets/fonts/PixelOperator8.ttf" id="7_fth67"]
+[ext_resource type="Script" path="res://scenes/WorldSwitchTimer.gd" id="10_xd356"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nooi"]
 texture = ExtResource("2_ld0rs")
@@ -454,6 +456,7 @@ _data = {
 
 [node name="Overworld" type="Node2D"]
 position = Vector2(1, 73)
+script = ExtResource("1_22nkr")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -569,3 +572,23 @@ theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_fth67")
 theme_override_font_sizes/font_size = 8
 text = "Almost there"
+
+[node name="WorldSwitchTimer" type="Timer" parent="."]
+wait_time = 120.0
+script = ExtResource("10_xd356")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 158.0
+offset_bottom = 41.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_fth67")
+theme_override_font_sizes/font_size = 25
+text = "testing"
+
+[connection signal="player_dead" from="Killzone" to="GameManager" method="_on_killzone_player_dead"]
+[connection signal="timeout" from="WorldSwitchTimer" to="WorldSwitchTimer" method="_on_timeout"]

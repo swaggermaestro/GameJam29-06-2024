@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5xbgwa6ths1v"]
+[gd_scene load_steps=16 format=3 uid="uid://c5xbgwa6ths1v"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_dfr8y"]
+[ext_resource type="Script" path="res://scenes/underworld.gd" id="1_uy2h7"]
 [ext_resource type="FontFile" uid="uid://coxpu4uinbbvn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_x6f7i"]
 [ext_resource type="Texture2D" uid="uid://dk0pmjbs6n66n" path="res://assets/sprites/world_tileset.png" id="3_hvg7k"]
 [ext_resource type="PackedScene" uid="uid://0xtutt17bdh5" path="res://scenes/player.tscn" id="4_kf0wi"]
@@ -453,6 +454,7 @@ _data = {
 
 [node name="Underworld" type="Node2D"]
 position = Vector2(1, 73)
+script = ExtResource("1_uy2h7")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -534,7 +536,7 @@ offset_bottom = -19.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("9_6s3hb")
 theme_override_font_sizes/font_size = 8
-text = "Falling hurts"
+text = "Falling is fine, don't worry"
 
 [node name="Label3" type="Label" parent="Labels"]
 offset_left = 869.0
@@ -545,3 +547,5 @@ theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("9_6s3hb")
 theme_override_font_sizes/font_size = 8
 text = "Almost there"
+
+[connection signal="player_dead" from="Killzone" to="." method="_on_killzone_player_dead"]
