@@ -5,7 +5,7 @@ var underworldPacked = preload("res://scenes/underworld.tscn")
 var underworld: Underworld
 var overworld: Overworld
 
-const TIME_PER_COIN = 5
+const TIME_PER_COIN = 10
 
 var underworld_coins: int = 0
 

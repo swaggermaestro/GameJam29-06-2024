@@ -574,20 +574,24 @@ theme_override_font_sizes/font_size = 8
 text = "Almost there"
 
 [node name="WorldSwitchTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 script = ExtResource("10_xd356")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="TimerLabel" type="Label" parent="HUD"]
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 158.0
-offset_bottom = 41.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 33.0
+offset_right = 99.0
+offset_bottom = 69.0
+grow_horizontal = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_fth67")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 35
 text = "testing"
 
 [connection signal="player_dead" from="Killzone" to="." method="_on_killzone_player_dead"]
