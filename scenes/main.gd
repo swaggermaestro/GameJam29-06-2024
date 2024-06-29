@@ -5,6 +5,10 @@ var underworldPacked = preload("res://scenes/underworld.tscn")
 var underworld: Underworld
 var overworld: Overworld
 
+const TIME_PER_COIN = 5
+
+var underworld_coins: int = 0
+
 func init_underworld():
 	underworld = underworldPacked.instantiate()
 	underworld.switch_to_overworld.connect(_switch_to_overworld)
@@ -28,7 +32,6 @@ func restart_overworld():
 	add_child(overworld)
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_overworld()
@@ -37,10 +40,12 @@ func _ready():
 	add_child(overworld)
 	pass # Replace with function body.
 
-func _switch_to_overworld():
+func _switch_to_overworld(coins: int):
+	underworld_coins = coins
 	remove_child(underworld)
 	init_overworld()
 	add_child(overworld)
+	overworld.add_time(underworld_coins * TIME_PER_COIN)
 	pass
 	
 func _switch_to_underworld():
