@@ -11,12 +11,16 @@ func init_underworld():
 	underworld.restart.connect(restart_underworld)
 
 func restart_underworld():
+	remove_child(underworld)
+	underworld.queue_free()
 	init_underworld()
-	_switch_to_underworld()
+	add_child(underworld)
 
 func restart_overworld():
+	remove_child(overworld)
+	overworld.queue_free()
 	init_overworld()
-	_switch_to_overworld()
+	add_child(overworld)
 
 func init_overworld():
 	overworld = overworldPacked.instantiate()
