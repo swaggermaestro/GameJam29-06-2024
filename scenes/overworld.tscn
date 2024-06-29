@@ -591,4 +591,5 @@ theme_override_font_sizes/font_size = 25
 text = "testing"
 
 [connection signal="player_dead" from="Killzone" to="." method="_on_killzone_player_dead"]
+[connection signal="player_dead" from="slime" to="." method="_on_killzone_player_dead"]
 [connection signal="timeout" from="WorldSwitchTimer" to="." method="_on_world_switch_timer_timeout"]

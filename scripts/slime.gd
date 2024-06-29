@@ -4,6 +4,8 @@ extends Node2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+signal player_dead
+
 const SPEED = 60
 
 var direction = 1
@@ -25,3 +27,7 @@ func _process(delta):
 		
 	position.x += direction * SPEED * delta
 	
+
+
+func _on_killzone_player_dead():
+	player_dead.emit()
