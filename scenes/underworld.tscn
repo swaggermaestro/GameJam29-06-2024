@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5xbgwa6ths1v"]
+[gd_scene load_steps=14 format=3 uid="uid://c5xbgwa6ths1v"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_dfr8y"]
 [ext_resource type="Script" path="res://scenes/underworld.gd" id="1_uy2h7"]
 [ext_resource type="FontFile" uid="uid://coxpu4uinbbvn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_x6f7i"]
 [ext_resource type="Texture2D" uid="uid://dwqye56fofxdr" path="res://assets/sprites/underworld_tileset.png" id="3_j8ow4"]
 [ext_resource type="PackedScene" uid="uid://0xtutt17bdh5" path="res://scenes/player.tscn" id="4_kf0wi"]
-[ext_resource type="PackedScene" uid="uid://cu5m0gryrjnf2" path="res://scenes/button.tscn" id="4_yyakc"]
+[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="4_yyakc"]
 [ext_resource type="PackedScene" uid="uid://khbuib4a8fpk" path="res://scenes/killzone.tscn" id="5_8nid2"]
-[ext_resource type="PackedScene" uid="uid://dbuwvckm05gew" path="res://scenes/underworld_platform.tscn" id="6_uudch"]
+[ext_resource type="PackedScene" path="res://scenes/underworld_platform.tscn" id="6_uudch"]
 [ext_resource type="PackedScene" uid="uid://bg1f7sh2kk56n" path="res://scenes/slime.tscn" id="8_ws3g4"]
 [ext_resource type="FontFile" uid="uid://b0qhfnymigvyv" path="res://assets/fonts/PixelOperator8.ttf" id="9_6s3hb"]
 

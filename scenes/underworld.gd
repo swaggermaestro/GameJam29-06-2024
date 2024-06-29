@@ -1,5 +1,9 @@
+class_name Underworld
+
 extends Node2D
 
+signal switch_to_overworld
+signal restart
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +16,5 @@ func _process(delta):
 
 
 func _on_killzone_player_dead():
-	get_tree().change_scene_to_file("res://scenes/overworld.tscn")
-	Engine.time_scale = 1
+	restart.emit()
+	# Engine.time_scale = 1

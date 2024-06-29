@@ -11,7 +11,3 @@ func _ready():
 func _process(delta):
 	timer_label.text = "Time:" + str(int(time_left))
 	pass
-	
-func _on_timeout():
-	get_tree().change_scene_to_file("res://scenes/underworld.tscn")
-	pass # Replace with function body.
