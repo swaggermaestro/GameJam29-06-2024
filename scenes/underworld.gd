@@ -2,7 +2,7 @@ class_name Underworld
 
 extends Node2D
 
-signal switch_to_overworld
+signal switch_to_overworld(coins: int)
 signal restart
 
 # Called when the node enters the scene tree for the first time.
@@ -22,5 +22,6 @@ func _on_killzone_player_dead():
 
 func _on_button_button_pressed():
 	print('emitting switch')
-	switch_to_overworld.emit()
+	var coins = $GameManager.score 
+	switch_to_overworld.emit(coins)
 	pass # Replace with function body.

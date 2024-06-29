@@ -10,7 +10,12 @@ signal restart
 func _ready():
 	world_switch_timer.start()
 	pass # Replace with function body.
+	
 
+func add_time(coins: int):
+	world_switch_timer.stop()
+	world_switch_timer.wait_time = 10.0 + coins
+	world_switch_timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
