@@ -9,6 +9,11 @@ func init_underworld():
 	underworld = underworldPacked.instantiate()
 	underworld.switch_to_overworld.connect(_switch_to_overworld)
 	underworld.restart.connect(restart_underworld)
+	
+func init_overworld():
+	overworld = overworldPacked.instantiate()
+	overworld.switch_to_underworld.connect(_switch_to_underworld)
+	overworld.restart.connect(restart_overworld)
 
 func restart_underworld():
 	remove_child(underworld)
@@ -22,10 +27,7 @@ func restart_overworld():
 	init_overworld()
 	add_child(overworld)
 
-func init_overworld():
-	overworld = overworldPacked.instantiate()
-	overworld.switch_to_underworld.connect(_switch_to_underworld)
-	overworld.restart.connect(restart_overworld)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

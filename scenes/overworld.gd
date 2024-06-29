@@ -19,6 +19,5 @@ func _process(delta):
 func _on_killzone_player_dead():
 	restart.emit()
 
-
 func _on_world_switch_timer_timeout():
 	switch_to_underworld.emit()

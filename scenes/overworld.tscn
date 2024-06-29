@@ -574,7 +574,7 @@ theme_override_font_sizes/font_size = 8
 text = "Almost there"
 
 [node name="WorldSwitchTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 script = ExtResource("10_xd356")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -590,5 +590,5 @@ theme_override_fonts/font = ExtResource("7_fth67")
 theme_override_font_sizes/font_size = 25
 text = "testing"
 
-[connection signal="player_dead" from="Killzone" to="GameManager" method="_on_killzone_player_dead"]
+[connection signal="player_dead" from="Killzone" to="." method="_on_killzone_player_dead"]
 [connection signal="timeout" from="WorldSwitchTimer" to="." method="_on_world_switch_timer_timeout"]

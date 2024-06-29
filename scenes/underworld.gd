@@ -18,3 +18,9 @@ func _process(delta):
 func _on_killzone_player_dead():
 	restart.emit()
 	# Engine.time_scale = 1
+
+
+func _on_button_button_pressed():
+	print('emitting switch')
+	switch_to_overworld.emit()
+	pass # Replace with function body.

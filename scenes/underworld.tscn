@@ -563,5 +563,7 @@ position = Vector2(377, -112)
 [node name="underworld coin2" parent="Underworld Coins" instance=ExtResource("12_8u1wt")]
 position = Vector2(201, 65)
 
+[connection signal="switch_to_overworld" from="." to="Button" method="_on_underworld_switch_to_overworld"]
+[connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
 [connection signal="action_pressed" from="Player" to="Button" method="_on_player_action_pressed"]
 [connection signal="player_dead" from="Killzone" to="." method="_on_killzone_player_dead"]
